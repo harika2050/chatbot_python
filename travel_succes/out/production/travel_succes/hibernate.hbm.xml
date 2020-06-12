@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+        "hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name ="mypack.admin" table="admin">
+        <id name="aid"	column="AID"/>
+        <property name="firstName" column="FIRSTNAME"/>
+        <property name="middleName"	column="MIDDLENAME"/>
+        <property name="lastName"	column="LASTNAME"/>
+        <property name="email"	column="EMAIL"/>
+        <property name="pass"	column="PASS"/>
+    </class>
+
+    <class name ="mypack.Bus" table="bus">
+        <composite-id>
+            <key-property name="bid"	column="BUSID"/>
+            <key-property name="departTime"	column="DEPART"/>
+            <key-property name="dayofweek"	column="DAYOFWEEK"/>
+        </composite-id>
+        <property name="bname"	column="BNAME"/>
+        <property name="bnumber"	column="BNUMBER"/>
+        <property name="price"	column="PRICE"/>
+        <property name="source"	column="SRC"/>
+        <property name="destination"	column="DEST"/>
+        <property name="capacity"	column="CAPACITY"/>
+        <property name="booked"	column="BOOKED"/>
+        <property name="arriveTime"	column="ARRIVE"/>
+    </class>
+
+    <class name ="mypack.Flight" table="flight">
+        <composite-id>
+            <key-property name="fid"	column="FID"/>
+            <key-property name="departTime"	column="DEPART"/>
+            <key-property name="dayofweek"	column="DAYOFWEEK"/>
+        </composite-id>
+        <property name="airline"	column="AIRLINE"/>
+        <property name="fnumber"	column="FNUMBER"/>
+        <property name="price"	column="PRICE"/>
+        <property name="source"	column="SRC"/>
+        <property name="destination"	column="DEST"/>
+        <property name="capacity"	column="CAPACITY"/>
+        <property name="booked"	column="BOOKED"/>
+        <property name="arriveTime"	column="ARRIVE"/>
+    </class>
+
+    <class name ="mypack.Train" table="train">
+        <composite-id>
+            <key-property name="trainid"	column="TRAINID"/>
+            <key-property name="departTime"	column="DEPART"/>
+            <key-property name="dayofweek"	column="DAYOFWEEK"/>
+        </composite-id>
+        <property name="tname"	column="TNAME"/>
+        <property name="tnumber"	column="TNUMBER"/>
+        <property name="price"	column="PRICE"/>
+        <property name="source"	column="SRC"/>
+        <property name="destination"	column="DEST"/>
+        <property name="capacity"	column="CAPACITY"/>
+        <property name="booked"	column="BOOKED"/>
+        <property name="arriveTime"	column="ARRIVE"/>
+    </class>
+
+
+    <class name ="mypack.Customer" table="customer">
+        <id name="cid"	column="CID"/>
+        <property name="firstName" column="FIRSTNAME"/>
+        <property name="middleName"	column="MIDDLENAME"/>
+        <property name="lastName"	column="LASTNAME"/>
+        <property name="email"	column="EMAIL"/>
+        <property name="pass"	column="PASS"/>
+    </class>
+
+
+    <class name ="mypack.FlightBooking" table="flight_booking">
+        <id name="tid"	column="TRANS_ID"/>
+        <property name="pid"	column="PID"/>
+        <property name="cid"	column="CID"/>
+        <property name="fid"	column="FID"/>
+        <property name="pay_time"	column="PAY_TIME"/>
+        <property name="amount"	column="AMOUNT"/>
+        <property name="tax"	column="TAX"/>
+        <property name="discount"	column="DISCOUNT"/>
+        <property name="final_price"	column="FINAL_PRICE"/>
+        <property name="num_of_pas" column="number_of_passengers" />
+        <property name="travelDate"	column="travel_date"/>
+    </class>
+
+    <class name ="mypack.BusBooking" table="bus_booking">
+        <id name="tid"	column="TRANS_ID"/>
+        <property name="pid"	column="PID"/>
+        <property name="cid"	column="CID"/>
+        <property name="bid"	column="BID"/>
+        <property name="pay_time"	column="PAY_TIME"/>
+        <property name="amount"	column="AMOUNT"/>
+        <property name="tax"	column="TAX"/>
+        <property name="discount"	column="DISCOUNT"/>
+        <property name="final_price"	column="FINAL_PRICE"/>
+        <property name="num_of_pas" column="number_of_passengers"/>
+        <property name="travelDate"	column="travel_date"/>
+
+    </class>
+
+    <class name ="mypack.TrainBooking" table="train_booking">
+        <id name="tid"	column="TRANS_ID"/>
+        <property name="pid"	column="PID"/>
+        <property name="cid"	column="CID"/>
+        <property name="trainid"	column="TID"/>
+        <property name="pay_time"	column="PAY_TIME"/>
+        <property name="amount"	column="AMOUNT"/>
+        <property name="tax"	column="TAX"/>
+        <property name="discount"	column="DISCOUNT"/>
+        <property name="final_price"	column="FINAL_PRICE"/>
+        <property name="num_of_pas" column="number_of_passengers"/>
+        <property name="travelDate"	column="travel_date"/>
+    </class>
+
+    <class name ="mypack.Payment" table="payment">
+        <id name="pid"	column="PID"/>
+        <property name="cid"	column="CID"/>
+        <property name="bank"	column="BANK"/>
+        <property name="cardno"	column="CARD_NO"/>
+        <property name="amount"	column="ACC_BALANCE"/>
+        <property name="type"	column="CARD_TYPE"/>
+        <property name="cvv"	column="CVV"/>
+    </class>
+
+</hibernate-mapping>
